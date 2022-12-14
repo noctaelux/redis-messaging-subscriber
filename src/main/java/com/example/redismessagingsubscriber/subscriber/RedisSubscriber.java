@@ -8,10 +8,10 @@ import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class RedisSubscriber implements MessageListener {
 
-    @Autowired
-    private ClientPrinter clientPrinter;
+    private final ClientPrinter clientPrinter;
 
     @Override
     public void onMessage(Message message, byte[] pattern) {

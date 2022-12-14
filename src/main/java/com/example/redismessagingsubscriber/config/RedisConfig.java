@@ -17,9 +17,11 @@ public class RedisConfig {
 
     private final RedisConnectionFactory connectionFactory;
 
+    private final RedisSubscriber redisSubscriber;
+
     @Bean
     MessageListenerAdapter messageListener(){
-        return new MessageListenerAdapter(new RedisSubscriber());
+        return new MessageListenerAdapter(redisSubscriber);
     }
 
     @Bean

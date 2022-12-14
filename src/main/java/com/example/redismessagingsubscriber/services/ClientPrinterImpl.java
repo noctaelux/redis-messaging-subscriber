@@ -13,15 +13,15 @@ import java.security.InvalidParameterException;
 @RequiredArgsConstructor
 public class ClientPrinterImpl implements ClientPrinter {
 
-    Logger LOG = LoggerFactory.getLogger(ClientPrinterImpl.class);
+    private final Logger LOG = LoggerFactory.getLogger(ClientPrinterImpl.class);
 
-    UnmarshallMessage<Cliente> unmarshallMessage;
+    private final UnmarshallMessage<Cliente> unmarshallMessage;
 
     @Override
     public void jsonPrint(byte[] message) {
         try {
             Cliente cliente = unmarshallMessage.fromJson(new String(message),Cliente.class);
-            LOG.debug(cliente.toString());
+            LOG.info(cliente.toString());
         } catch (JsonProcessingException e) {
             throw new InvalidParameterException("El mensaje no puede ser convertido a Cliente.");
         }
