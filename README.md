@@ -27,7 +27,7 @@ necesarios para trabajar con Redis, por lo que agregaremos las siguientes línea
 ```
 Para levantar este proyecto de Spring Boot, vamos a la carpeta del proyecto y por medio de Maven:
 ```
-$ mvn spring-boot:run
+mvn spring-boot:run
 ```
 
 ## Descripción
