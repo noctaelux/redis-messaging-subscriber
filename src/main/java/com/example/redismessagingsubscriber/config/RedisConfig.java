@@ -1,7 +1,7 @@
 package com.example.redismessagingsubscriber.config;
 
 import com.example.redismessagingsubscriber.subscriber.RedisSubscriber;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -10,10 +10,12 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
 @Configuration
+@RequiredArgsConstructor
 public class RedisConfig {
 
-    @Autowired
-    RedisConnectionFactory connectionFactory;
+    private final String CHANNEL = "stream:cliente";
+
+    private final RedisConnectionFactory connectionFactory;
 
     @Bean
     MessageListenerAdapter messageListener(){
@@ -30,7 +32,7 @@ public class RedisConfig {
 
     @Bean
     ChannelTopic topic(){
-        return new ChannelTopic("stream:cliente");
+        return new ChannelTopic(CHANNEL);
     }
 
 }
