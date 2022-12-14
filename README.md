@@ -1,4 +1,4 @@
-# Spring Boot - Redis Messaging Consumer
+# Spring Boot - Redis Messaging Subscriber
 
 ## Requerimientos
 - Java v11+
